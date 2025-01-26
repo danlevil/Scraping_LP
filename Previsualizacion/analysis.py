@@ -43,7 +43,7 @@ def acortar_etiqueta(etiqueta, longitud_max=15):
     return etiqueta
 
 # Graficar los conocimientos más comunes
-def conocimientos_mas_comunes(fig, ax):
+def conocimientos_mas_comunes(ax):
     conocimientos = df['Conocimientos'].dropna() # Eliminar filas con valores faltantes en la columna 'Conocimientos'
     conteo_conocimientos = Counter(obtener_totales_conocimientos(conocimientos)) # Contar los conocimientos más comunes
     conocimientos_mas_comunes = conteo_conocimientos.most_common(10)  # Top 10 conocimientos
@@ -54,10 +54,9 @@ def conocimientos_mas_comunes(fig, ax):
     ax.set_xlabel('Conocimientos', fontsize=12)
     ax.set_ylabel('Frecuencia', fontsize=12)
     ax.tick_params(axis='x', rotation=90)
-    fig.tight_layout()
 
 # Gráfico de caja para 'Experiencia_Numérica'
-def experiencia_por_ubicacion(fig, ax):
+def experiencia_por_ubicacion(ax):
     df['Ubicacion'] = df['Ubicacion'].dropna().apply(limpiar_ubicacion).apply(acortar_etiqueta) # Aplicar la función de limpieza a la columna 'Ubicacion'
     df['Experiencia_Numérica'] = df['Experiencia'].apply(extraer_experiencia) # Crear una nueva columna con la experiencia numérica
 
@@ -66,12 +65,12 @@ def experiencia_por_ubicacion(fig, ax):
     ax.set_xlabel('Ubicación', fontsize=12)
     ax.set_ylabel('Experiencia (Numérica)', fontsize=12)
     ax.tick_params(axis='x', rotation=90)
-    fig.tight_layout()
 
 fig, axs = plt.subplots(1, 2, figsize=(10, 6))
 
 
-conocimientos_mas_comunes(fig, axs[0])
-experiencia_por_ubicacion(fig, axs[1])
+conocimientos_mas_comunes(axs[0])
+experiencia_por_ubicacion(axs[1])
 fig.suptitle('Análisis CompuTrabajo', fontsize=16)
+fig.tight_layout()
 plt.show()
