@@ -55,11 +55,9 @@ top_10_ecuador = comparativo['Ecuador'].sort_values(ascending=False).head(10)
 
 top_lenguajes = comparativo.head(6).index
 
-# Obtener valores de demanda
 valores_ecuador = comparativo.loc[top_lenguajes, 'Ecuador'].values
 valores_colombia = comparativo.loc[top_lenguajes, 'Colombia'].values
 
-# Normalizar los valores para que no haya una gran diferencia entre escalas
 valores_max = max(valores_ecuador.max(), valores_colombia.max())
 valores_ecuador = valores_ecuador / valores_max
 valores_colombia = valores_colombia / valores_max
@@ -100,10 +98,9 @@ axs[1].tick_params(axis='x', rotation=45)
 axs[1].grid(axis='y', linestyle='--', alpha=0.7)
 
 
-# --------------------- SEGUNDA PANTALLA: GRÁFICO DE RADAR ---------------------
+# --- Grafico de radar ---
 fig, ax_radar = plt.subplots(figsize=(8, 8), subplot_kw=dict(polar=True))
 
-# Graficar Ecuador y Colombia con estilos mejorados
 ax_radar.plot(angles, valores_ecuador, label='Ecuador', color='blue', linewidth=2, linestyle='solid', alpha=0.7)
 ax_radar.fill(angles, valores_ecuador, color='blue', alpha=0.2)
 ax_radar.plot(angles, valores_colombia, label='Colombia', color='red', linewidth=2, linestyle='dashed', alpha=0.7)
@@ -112,7 +109,6 @@ ax_radar.fill(angles, valores_colombia, color='red', alpha=0.2)
 ax_radar.set_xticks(angles[:-1])
 ax_radar.set_xticklabels(top_lenguajes, fontsize=11, ha='center')
 
-# Añadir etiquetas de valores en los puntos
 for angle, value, label in zip(angles[:-1], valores_ecuador[:-1], top_lenguajes):
     ax_radar.text(angle, value + 0.1, f"{int(value * valores_max)}", fontsize=10, ha='center', color='blue', fontweight='bold')
 for angle, value, label in zip(angles[:-1], valores_colombia[:-1], top_lenguajes):
@@ -121,6 +117,5 @@ for angle, value, label in zip(angles[:-1], valores_colombia[:-1], top_lenguajes
 ax_radar.set_title("Comparación de Lenguajes más Demandados en Ecuador vs. Colombia", fontsize=14, pad=20)
 ax_radar.legend(loc="upper right", bbox_to_anchor=(1.2, 1.1))
 
-# Ajustar diseño y mostrar
 plt.tight_layout()
 plt.show()

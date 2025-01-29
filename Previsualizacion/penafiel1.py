@@ -3,12 +3,9 @@ import matplotlib.pyplot as plt
 from collections import Counter
 import re
 
-PATH_BuscoJobsCSV     = "datosCSV/BuscoJobs_ofertas.csv"
-PATH_ComputrabajoCSV  = "datosCSV/CompuTrabajo_ofertas.csv"
-PATH_InfoJobsCSV      = "datosCSV/InfoJobs_ofertas.csv" #España
-PATH_EmpleosCSV      = "datosCSV/Empleo_ofertas.csv"  #Colombia
+PATH_EmpleosCSV      = "datosCSV/Empleo_ofertas.csv"  
 
-df = pd.read_csv(PATH_EmpleosCSV) # Cargar el archivo CSV
+df = pd.read_csv(PATH_EmpleosCSV) 
 
 def clasificar_experiencia(exp):
     if pd.isna(exp) or re.search(r'sin experiencia|no aplica', str(exp).lower()):
@@ -29,7 +26,6 @@ df['Nivel_Experiencia'] = df['Experiencia'].apply(clasificar_experiencia)
 
 # Calcular el porcentaje
 total_ofertas = len(df)
-
 conteo_niveles = df['Nivel_Experiencia'].value_counts()
 
 # Crear gráfico de pastel
@@ -41,16 +37,15 @@ explode = [0.05] * len(sizes)
 plt.figure(figsize=(10, 8))
 wedges, texts, autotexts = plt.pie(
     sizes,
-    labels=None,  # Ocultar las etiquetas del gráfico
-    autopct=lambda p: f'{p:.1f}%\n({int(p * total_ofertas / 100)})',  # Mostrar porcentaje y valor absoluto
+    labels=None,  
+    autopct=lambda p: f'{p:.1f}%\n({int(p * total_ofertas / 100)})',  
     colors=colors,
     startangle=90,
     explode=explode,
-    wedgeprops={'edgecolor': 'black'},  # Borde en las porciones
-    pctdistance=0.8  # Ajustar la posición de los porcentajes
+    wedgeprops={'edgecolor': 'black'}, 
+    pctdistance=0.8 
 )
 
-# Añadir leyenda separada
 plt.legend(
     wedges,
     [f'{label} ({count})' for label, count in zip(labels, sizes)],
