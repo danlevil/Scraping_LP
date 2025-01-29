@@ -77,7 +77,7 @@ fig, axs = plt.subplots(1, 2, figsize=(14, 6))
 axs[0].scatter(top_10_colombia.index, top_10_colombia.values, color='red', s=100, edgecolors='black')
 
 for lang, demand in zip(top_10_colombia.index, top_10_colombia.values):
-    axs[0].text(lang, demand + 5, f"{demand}", fontsize=12, ha='center', color='black')
+    axs[0].text(lang, demand + 2, f"{demand}", fontsize=12, ha='center', color='black')
 
 axs[0].set_title("Top 10 Lenguajes más Demandados en Colombia", fontsize=14)
 axs[0].set_xlabel("Lenguajes de Programación", fontsize=12)
@@ -89,7 +89,7 @@ axs[0].grid(axis='y', linestyle='--', alpha=0.7)
 axs[1].scatter(top_10_ecuador.index, top_10_ecuador.values, color='blue', s=100, edgecolors='black')
 
 for lang, demand in zip(top_10_ecuador.index, top_10_ecuador.values):
-    axs[1].text(lang, demand + 5, f"{demand}", fontsize=12, ha='center', color='black')
+    axs[1].text(lang, demand + 2, f"{demand}", fontsize=12, ha='center', color='black')
 
 axs[1].set_title("Top 10 Lenguajes más Demandados en Ecuador", fontsize=14)
 axs[1].set_xlabel("Lenguajes de Programación", fontsize=12)
