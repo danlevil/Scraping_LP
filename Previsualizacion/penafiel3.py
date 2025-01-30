@@ -3,35 +3,36 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-df = pd.read_csv("datosCSV/Empleo_ofertas.csv")  
+def analisis_peñafiel3():
 
-df['Experiencia'] = df['Experiencia'].astype(str).str.lower()
+    df = pd.read_csv("datosCSV/Empleo_ofertas.csv")  
 
-contratos_definidos = ['definido', 'por obra o labor', 'de aprendizaje', 'prestacion de servicios']
+    df['Experiencia'] = df['Experiencia'].astype(str).str.lower()
 
-patron_contratos = r'\b(?:' + '|'.join(map(re.escape, contratos_definidos)) + r')\b'
+    contratos_definidos = ['definido', 'por obra o labor', 'de aprendizaje', 'prestacion de servicios']
 
-contrato_definido = df['Experiencia'].str.contains(patron_contratos, regex=True, na=False).sum()
-contrato_indefinido = len(df) - contrato_definido  
+    patron_contratos = r'\b(?:' + '|'.join(map(re.escape, contratos_definidos)) + r')\b'
 
-porcentaje_definido = (contrato_definido / len(df)) * 100
-porcentaje_indefinido = (contrato_indefinido / len(df)) * 100
+    contrato_definido = df['Experiencia'].str.contains(patron_contratos, regex=True, na=False).sum()
+    contrato_indefinido = len(df) - contrato_definido  
 
-labels = ["Contrato Indefinido", "Contrato Definido"]
-values = [porcentaje_indefinido, porcentaje_definido]
-colors = ["#ff9999", "#66b3ff"]
+    porcentaje_definido = (contrato_definido / len(df)) * 100
+    porcentaje_indefinido = (contrato_indefinido / len(df)) * 100
 
-fig, ax = plt.subplots(figsize=(6, 6))
-ax.barh(labels, values, color=colors, edgecolor="black")
+    labels = ["Indefinido", "Definido"]
+    values = [porcentaje_indefinido, porcentaje_definido]
+    colors = ["#ff9999", "#66b3ff"]
 
-for index, value in enumerate(values):
-    ax.text(value - 5, index, f"{value:.1f}%", fontsize=12, ha='right', color="black", fontweight='bold')
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.barh(labels, values, color=colors, edgecolor="black")
 
-ax.set_title("Distribución de Tipos de Contrato", fontsize=14)
-ax.set_xlabel("Porcentaje de Ofertas", fontsize=12)
-ax.set_xlim(0, 100)
-ax.invert_yaxis() 
-ax.grid(axis='x', linestyle="--", alpha=0.7)
+    for index, value in enumerate(values):
+        ax.text(value - 2, index, f"{value:.2f}%", fontsize=9, ha='right', color="black", fontweight='bold')
 
-plt.show()
+    ax.set_title("Distribución de Tipos de Contrato", fontsize=12)
+    ax.set_xlabel("Porcentaje de Ofertas", fontsize=12)
+    ax.set_xlim(0, 100)
+    ax.invert_yaxis() 
+    ax.grid(axis='x', linestyle="--", alpha=0.7)
 
+    return plt
