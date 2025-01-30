@@ -1,9 +1,0 @@
-require_relative 'Scraper'
-
-
-
-
-
-
-
-

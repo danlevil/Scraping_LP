@@ -75,3 +75,7 @@ def analisis_gaibor1():
     fig.suptitle('Análisis CompuTrabajo', fontsize=16)
     fig.tight_layout    
     return plt
+
+if __name__ == "__main__":
+    plt= analisis_gaibor1()
+    plt.show()

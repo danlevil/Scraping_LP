@@ -41,3 +41,7 @@ def analisis_provincias_experiencia():
 
     plt.tight_layout()
     return plt
+
+if __name__ == "__main__":
+    plt= analisis_provincias_experiencia()
+    plt.show()

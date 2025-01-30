@@ -49,3 +49,7 @@ def analisis_experiencia_por_categoria():
     plt.grid(axis='x', linestyle='--', alpha=0.7)
     plt.tight_layout()
     return plt
+
+if __name__ == "__main__":
+    plt= analisis_experiencia_por_categoria()
+    plt.show()

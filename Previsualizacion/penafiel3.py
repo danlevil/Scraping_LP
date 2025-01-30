@@ -36,3 +36,7 @@ def analisis_peñafiel3():
     ax.grid(axis='x', linestyle="--", alpha=0.7)
 
     return plt
+
+if __name__ == "__main__":
+    plt= analisis_peñafiel3()
+    plt.show()

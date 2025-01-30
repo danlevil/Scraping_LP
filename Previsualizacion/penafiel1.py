@@ -59,3 +59,7 @@ def analisis_peñafiel1():
     plt.title('Distribución de Niveles de Experiencia en las Ofertas')
     plt.tight_layout()
     return plt
+
+if __name__ == "__main__":
+    plt= analisis_peñafiel1()
+    plt.show()

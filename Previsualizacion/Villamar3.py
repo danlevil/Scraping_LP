@@ -40,3 +40,7 @@ def analisis_idioma_ingles():
     plt.axis('equal') 
     plt.tight_layout()
     return plt
+
+if __name__ == "__main__":
+    plt= analisis_idioma_ingles()
+    plt.show()
