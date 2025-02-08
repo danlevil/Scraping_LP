@@ -28,7 +28,6 @@ class ScraperCompuTrabajos < Scraper
               offer = CompuTrabajoOffer.new(name, ubicacion, urlhref)
               offer.setModalidad(modalidad)
               $hashOffers[offer]= urlhref
-              #data_id = tarjetaTrabajo.at_xpath('.//@data-id').value 
 
             end
           end

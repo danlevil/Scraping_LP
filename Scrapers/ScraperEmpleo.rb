@@ -25,7 +25,6 @@ class ScraperEmpleo < Scraper
               salario = eliminar_tildes(salario)
               offer = EmpleoOffer.new(name,ubicacion,urlhref, salario)
               $hashOffers[offer]=urlhref
-              #puts "Guardando datos en el Hash"
           end
         end
         sleep(2.8)
@@ -64,8 +63,7 @@ class ScraperEmpleo < Scraper
           offer.setFormacion(formacion)
           offer.setExperiencia(experiencia)
           offer.setDescripcion(descripcion)
-          # puts "hab: #{habilidades}, formacion: #{formacion},
-          # exp: #{experiencia}, descp: #{descripcion} "
+
           begin
             offer.save(archivoCsv)
             puts "Guardado correctamente: #{offer.nombre}"

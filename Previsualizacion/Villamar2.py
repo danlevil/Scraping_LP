@@ -10,7 +10,9 @@ def analisis_experiencia_por_categoria():
         "data": ["data", "big data", "data science", "scientist"],
         "ciberseguridad": ["ciberseguridad", "seguridad", "cyber", "security"],
         "project manager": ["project", "manager"],
-        "fullstack": ["fullstack", "full stack"]
+        "fullstack": ["fullstack", "full stack"],
+        "frontend" : ["frontend", "front end"],
+        "Web" : ["javascript" , "html" ,"php"]
     }
     def asignar_categoria(nombre):
         nombre = nombre.lower()

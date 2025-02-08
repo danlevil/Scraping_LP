@@ -5,7 +5,7 @@ class ScraperBuscoJobs < Scraper
 
     def extraer(urlPage, archivoCsv)
         $hashOffers= {}
-        (1..16).each do |page|
+        (1..5).each do |page|
         begin
             url= "#{urlPage}/#{page}"
             puts "Scraping página: #{url}"

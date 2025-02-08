@@ -9,7 +9,7 @@ def analisis_peñafiel3():
 
     df['Experiencia'] = df['Experiencia'].astype(str).str.lower()
 
-    contratos_definidos = ['definido', 'por obra o labor', 'de aprendizaje', 'prestacion de servicios']
+    contratos_definidos = ['freelance', 'de aprendizaje', 'prestacion de servicios']
 
     patron_contratos = r'\b(?:' + '|'.join(map(re.escape, contratos_definidos)) + r')\b'
 

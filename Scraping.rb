@@ -8,14 +8,13 @@ require_relative 'Clases/JobOffer'
 require_relative 'Scrapers/ScraperBuscoJobs'
 require_relative  'Scrapers/ScraperEmpleo'
 require_relative  'Scrapers/ScraperCompuTrabajos'
-require_relative  'Scrapers/ScraperInfoJobs'
 
 
-PATH_BuscoJobsCSV     = "datosCSV/BuscoJobs_ofertas.csv"
-PATH_ComputrabajoCSV  = "datosCSV/CompuTrabajo_ofertas.csv"
-PATH_EmpleosCSV      = "datosCSV/Empleo_ofertas.csv"  #Colombia
+PATH_BuscoJobsCSV     = "datosCSV2/BuscoJobs_ofertas.csv"
+PATH_ComputrabajoCSV  = "datosCSV2/CompuTrabajo_ofertas.csv"
+PATH_EmpleosCSV      = "datosCSV2/Empleo_ofertas.csv"  #Colombia
 
-Dir.mkdir("datosCSV") unless Dir.exist?("datosCSV")
+Dir.mkdir("datosCSV2") unless Dir.exist?("datosCSV2")
 csv_files = {
     PATH_BuscoJobsCSV => [ "Nombre" , "Ubicacion", "Url", "Salario", "Modalidad", "Descripcion"],
     PATH_ComputrabajoCSV => ["Nombre", "Ubicacion","Salario","Modalidad","Idioma", "Experiencia" ,"Conocimientos","Url",  "Descripcion"],
@@ -39,12 +38,12 @@ url_compuTrabajo  = "https://ec.computrabajo.com/trabajo-de-desarrollador?"
 
 
 #----------Scraper BuscoJobs.com--------------------
-# sc = ScraperBuscoJobs.new()
-# sc.extraer(url_buscoJobs, PATH_BuscoJobsCSV2)
+sc = ScraperBuscoJobs.new()
+sc.extraer(url_buscoJobs, PATH_BuscoJobsCSV)
 
 #----------Scraper Empleo.co------------------------
-# sc = ScraperEmpleo.new()
-# sc.extraer(url_elempleo, PATH_EmpleosCSV)
+sc = ScraperEmpleo.new()
+sc.extraer(url_elempleo, PATH_EmpleosCSV)
 # 
 
 #----------Scraper CompuTrabajos.com----------------
