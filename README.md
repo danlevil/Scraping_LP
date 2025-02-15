@@ -1,6 +1,6 @@
 # Scraping_LP
 
-Proyecto de Análisis de datos para la materia ***Lenguajes de Programación***. La data recolectada son ofertas de trabajo extraidas utilizando Scraping en distintas plataformas de empleo.
+Proyecto de Análisis de datos para la materia ***Lenguajes de Programación***. La data recolectada son ofertas de trabajo extraídas utilizando Scraping en distintas plataformas de empleo.
 
 ## Requisitos
 
