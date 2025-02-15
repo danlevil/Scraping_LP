@@ -1,5 +1,7 @@
 # Scraping_LP
 
+Proyecto de Análisis de datos para la materia ***Lenguajes de Programación***. La data recolectada son ofertas de trabajo extraidas utilizando Scraping en distintas plataformas de empleo.
+
 ## Requisitos
 
 - Python 3.7 o superior
@@ -55,3 +57,12 @@ El script **generar_reporte.py** utiliza los archivos de la carpeta Previsualiza
    ![Ejecución desde la terminal](readme_Material/uso_ScrapingRB.png)
 
 2. El programa generará el reporte, esperar hasta que finalice.
+
+## Autor
+
+- [Daniel Villamar].
+
+## Colaboradores
+
+- [Alex Peñafiel].
+- [Ronald Gaibor].
